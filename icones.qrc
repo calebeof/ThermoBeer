@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/resource">
+        <file>ThermoBeercomF.png</file>
+        <file>iic.png</file>
+        <file>iic2.png</file>
+    </qresource>
+</RCC>

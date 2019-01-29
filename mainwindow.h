@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <QPixmap>
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QDebug>
+
 
 namespace Ui {
 class MainWindow;
@@ -15,6 +19,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+     QSerialPort serial;
+
+
+
+private slots:
+     void dados();
+     void on_pb_conectar_clicked();
+
+     void on_pb_reiniciar_clicked();
+
 
 private:
     Ui::MainWindow *ui;
