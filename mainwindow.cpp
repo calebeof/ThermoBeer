@@ -7,14 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(&serial, SIGNAL(readyRead()),this,SLOT(dados()));
-
-    ui->setupUi(this);
-    QPixmap pix(":/resource/ThermoBeercomF.png");
-    //ui->lb_logo
-    int w = ui->lbl_image->width();
-    int h = ui->lbl_image->height();
-    ui->lb_logo->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-
     for(auto& item : QSerialPortInfo::availablePorts()){
      ui->cbox_serial->addItem(item.portName());
     }
@@ -35,13 +27,16 @@ void MainWindow::dados()
 {
     QString info=serial.readAll();
     if(info.startsWith("{") && info.endsWith("}")){
-
+        if(info.contains("SENSOR:")){
+            QStringList temperatura = info.split(":");
+            ui->lcd_temp->display(temperatura[1]);
+        }
     }
 }
 
 void MainWindow::on_pb_conectar_clicked()
 {
-    QString cor="green";
+    QString cor="yellow";
     QString status="Conectado";
      serial.setPortName(ui->cbox_serial->currentText());
      serial.setBaudRate(ui->cbox_veloc->currentText().toInt());

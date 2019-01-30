@@ -45,8 +45,11 @@
       <height>291</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(46, 52, 54);</string>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_connect">
      <attribute name="title">
@@ -70,7 +73,10 @@
           </font>
          </property>
          <property name="text">
-          <string>Porta Serial:</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#edd400;&quot;&gt;Porta Serial:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="margin">
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -82,7 +88,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Velocidade:</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#edd400;&quot;&gt;Velocidade:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -93,11 +99,34 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="cbox_serial"/>
-       </item>
        <item row="2" column="1">
-        <widget class="QComboBox" name="cbox_veloc"/>
+        <widget class="QComboBox" name="cbox_veloc">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);
+selection-background-color: rgb(245, 121, 0);</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Escolha a velocidade da porta</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbox_serial">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);
+selection-background-color: rgb(245, 121, 0);</string>
+         </property>
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Escolha a porta serial..</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -109,6 +138,9 @@
         <width>111</width>
         <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
       </property>
       <property name="text">
        <string>Conectar</string>
@@ -134,6 +166,9 @@
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
+      </property>
       <property name="text">
        <string>Reiniciar</string>
       </property>
@@ -158,8 +193,17 @@
         <height>91</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(238, 238, 236);</string>
+      </property>
       <property name="smallDecimalPoint">
        <bool>true</bool>
+      </property>
+      <property name="value" stdset="0">
+       <double>30.000000000000000</double>
+      </property>
+      <property name="intValue" stdset="0">
+       <number>30</number>
       </property>
      </widget>
      <widget class="QLabel" name="lb_temp">
@@ -177,7 +221,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Temperatura da cerveja (°C)</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#edd400;&quot;&gt;Temperatura da cerveja (°C)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="lb_status">
@@ -203,9 +247,9 @@
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>40</y>
-        <width>141</width>
-        <height>211</height>
+        <y>30</y>
+        <width>151</width>
+        <height>221</height>
        </rect>
       </property>
       <property name="text">
@@ -252,6 +296,9 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(237, 212, 0);</string>
+         </property>
          <property name="text">
           <string>Nome:</string>
          </property>
@@ -261,7 +308,11 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="ledit_nome"/>
+        <widget class="QLineEdit" name="ledit_nome">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);</string>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="lbcd_tipo">
@@ -269,6 +320,9 @@
           <font>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(237, 212, 0);</string>
          </property>
          <property name="text">
           <string>Tipo:</string>
@@ -279,7 +333,11 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="ledit_tipo"/>
+        <widget class="QLineEdit" name="ledit_tipo">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);</string>
+         </property>
+        </widget>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="lbcd_link">
@@ -287,6 +345,9 @@
           <font>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(237, 212, 0);</string>
          </property>
          <property name="text">
           <string>Link da receita:</string>
@@ -297,7 +358,11 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="ledit_link"/>
+        <widget class="QLineEdit" name="ledit_link">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);</string>
+         </property>
+        </widget>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="label">
@@ -306,6 +371,9 @@
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(237, 212, 0);</string>
+         </property>
          <property name="text">
           <string>Levedura:</string>
          </property>
@@ -313,6 +381,10 @@
        </item>
        <item row="6" column="1">
         <widget class="QComboBox" name="lev_combo">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(211, 215, 207);
+selection-background-color: rgb(245, 121, 0);</string>
+         </property>
          <item>
           <property name="text">
            <string>Escolha uma levedura...</string>
@@ -346,7 +418,7 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>80</x>
         <y>0</y>
         <width>271</width>
         <height>20</height>
@@ -370,17 +442,20 @@
      <widget class="QDateEdit" name="dedit_inicio">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>358</x>
         <y>60</y>
-        <width>79</width>
-        <height>18</height>
+        <width>101</width>
+        <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
       </property>
      </widget>
      <widget class="QLabel" name="lb_iniferm">
       <property name="geometry">
        <rect>
-        <x>350</x>
+        <x>340</x>
         <y>30</y>
         <width>141</width>
         <height>20</height>
@@ -390,6 +465,9 @@
        <font>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(237, 212, 0);</string>
       </property>
       <property name="text">
        <string>Início da Fermentação</string>
@@ -401,7 +479,7 @@
      <widget class="QLabel" name="lb_termferm">
       <property name="geometry">
        <rect>
-        <x>340</x>
+        <x>330</x>
         <y>90</y>
         <width>151</width>
         <height>20</height>
@@ -411,6 +489,9 @@
        <font>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(237, 212, 0);</string>
       </property>
       <property name="text">
        <string>Término da Fermentação</string>
@@ -422,17 +503,20 @@
      <widget class="QDateEdit" name="dedit_termino">
       <property name="geometry">
        <rect>
-        <x>380</x>
+        <x>358</x>
         <y>120</y>
-        <width>79</width>
-        <height>18</height>
+        <width>101</width>
+        <height>20</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
       </property>
      </widget>
      <widget class="QLabel" name="lb_qtd">
       <property name="geometry">
        <rect>
-        <x>350</x>
+        <x>340</x>
         <y>150</y>
         <width>141</width>
         <height>20</height>
@@ -444,7 +528,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Quantidade Produzida</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#edd400;&quot;&gt;Quantidade Produzida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -459,12 +543,15 @@
         <height>22</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
+      </property>
      </widget>
      <widget class="QCheckBox" name="checkBox">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>180</y>
+        <x>140</x>
+        <y>190</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -476,14 +563,22 @@
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>200</y>
-        <width>75</width>
+        <x>20</x>
+        <y>190</y>
+        <width>91</width>
         <height>23</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(211, 215, 207);</string>
+      </property>
       <property name="text">
        <string>Salvar</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <selectedon>:/resource/save.png</selectedon>
+       </iconset>
       </property>
      </widget>
     </widget>
