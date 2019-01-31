@@ -53,7 +53,7 @@
     </property>
     <widget class="QWidget" name="tab_connect">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>Monitoramento</string>
      </attribute>
      <widget class="QWidget" name="formLayoutWidget">
       <property name="geometry">
@@ -277,7 +277,7 @@ selection-background-color: rgb(245, 121, 0);</string>
     </widget>
     <widget class="QWidget" name="tab_cadastro">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>Cadastro</string>
      </attribute>
      <widget class="QWidget" name="formLayoutWidget_2">
       <property name="geometry">
