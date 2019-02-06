@@ -405,6 +405,41 @@ selection-background-color: #f57900;</string>
            <string>Escolha uma levedura...</string>
           </property>
          </item>
+         <item>
+          <property name="text">
+           <string>Abbaye</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Belle Saison</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>BRY-97</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Diamond</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Munich</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nottingham</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Windsor</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item row="1" column="1">
@@ -616,7 +651,11 @@ selection-background-color: #f57900;</string>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="styleSheet">
+          <string notr="true">background-color: #eff2ed;</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -629,7 +668,7 @@ selection-background-color: #f57900;</string>
      <x>0</x>
      <y>0</y>
      <width>688</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
