@@ -8,6 +8,11 @@
 #include <QDebug>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QFile>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <dados.h>
+
 
 namespace Ui {
 class MainWindow;
@@ -16,6 +21,8 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+private:
+    Dados levedura;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
@@ -29,7 +36,7 @@ private slots:
      void on_pb_conectar_clicked();
 
      void on_pb_reiniciar_clicked();
-
+     void on_save_button_clicked();
 
 private:
     Ui::MainWindow *ui;

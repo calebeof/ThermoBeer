@@ -67,3 +67,31 @@ void MainWindow::on_pb_reiniciar_clicked()
 
 
 
+
+void MainWindow::on_save_button_clicked()
+{
+    levedura.set_name(ui->ledit_nome->text());
+    levedura.set_link(ui->ledit_link->text());
+    levedura.set_tipo(ui->ledit_tipo->text());
+    levedura.set_levedura(ui->lev_combo->currentText());
+    levedura.set_teor(ui->lb_teor->text());
+    levedura.set_quantidade(ui->spbox_qtd->value());
+
+
+    QString lev=QFileDialog::getSaveFileName(this,"levedura","","Texto Puro(*.csv)");
+    QFile arquivo(lev);
+    arquivo.open(QIODevice::WriteOnly);
+    QTextStream out(&arquivo);
+    out<<"Nome: "<<levedura.get_name()<<endl;
+    out<<"Tipo: "<<levedura.get_tipo()<<endl;
+    out<<"Link: "<<levedura.get_link()<<endl;
+    out<<"Levedura: "<<levedura.get_levedura()<<endl;
+    out<<"Quantidade produzida: "<<levedura.get_quantidade()<<endl;
+    out<<"Teor alcoolico: "<<levedura.get_teor()<<endl;
+    arquivo.close();
+    QMessageBox::information(this,"Salvar cadastro","Os dados foram salvos com sucesso!");
+    ui->ledit_nome->clear();
+    ui->ledit_link->clear();
+    ui->ledit_tipo->clear();
+  }
+
