@@ -25,13 +25,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::dados()
 {
-    QString info=serial.readAll();
-    if(info.startsWith("{") && info.endsWith("}")){
-        if(info.contains("SENSOR:")){
-            QStringList temperatura = info.split(":");
-            ui->lcd_temp->display(temperatura[1]);
-        }
-    }
+    auto info=serial.readAll();
+    auto inform = QJsonDocument::fromJson(info).object().toVariantMap();
+
+    if(inform.contains("SENSOR"))
+        ui->lcd_temp->display(inform["SENSOR"].toString());
+    if(inform.contains("STATUS"))
+        ui->lb_status->setText(inform["STATUS"].toString());
+
 }
 
 void MainWindow::on_pb_conectar_clicked()
@@ -57,7 +58,7 @@ void MainWindow::on_pb_reiniciar_clicked()
     ui->cbox_serial->clearEditText();
     ui->cbox_veloc->clearEditText();
     QString cor_2="red";
-    QString status_2="Desconectado";
+    QString status_2="Aguardando Conexão...";
     ui->lb_status->setText(status_2);
     ui->lb_status->setStyleSheet("color: "+cor_2);
 }

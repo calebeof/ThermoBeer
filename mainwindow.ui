@@ -46,10 +46,10 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #f8f9f7;</string>
+     <string notr="true">background-color: #ffffff;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_connect">
      <attribute name="title">
@@ -58,7 +58,7 @@
      <widget class="QWidget" name="formLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>40</y>
         <width>331</width>
         <height>101</height>
@@ -71,6 +71,9 @@
           <font>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #ffbb00;</string>
          </property>
          <property name="text">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#edd400;&quot;&gt;Porta Serial:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -164,7 +167,7 @@ selection-background-color: #f57900;</string>
      <widget class="QPushButton" name="pb_conectar">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>150</y>
         <width>111</width>
         <height>21</height>
@@ -191,7 +194,7 @@ selection-background-color: #f57900;</string>
      <widget class="QPushButton" name="pb_reiniciar">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>150</y>
         <width>111</width>
         <height>23</height>
@@ -218,7 +221,7 @@ selection-background-color: #f57900;</string>
      <widget class="QLCDNumber" name="lcd_temp">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>80</x>
         <y>200</y>
         <width>251</width>
         <height>91</height>
@@ -240,7 +243,7 @@ selection-background-color: #f57900;</string>
      <widget class="QLabel" name="lb_temp">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>300</y>
         <width>231</width>
         <height>31</height>
@@ -261,7 +264,7 @@ selection-background-color: #f57900;</string>
      <widget class="QLabel" name="lb_logo">
       <property name="geometry">
        <rect>
-        <x>390</x>
+        <x>400</x>
         <y>60</y>
         <width>241</width>
         <height>241</height>
@@ -299,7 +302,7 @@ selection-background-color: #f57900;</string>
        <rect>
         <x>16</x>
         <y>90</y>
-        <width>291</width>
+        <width>293</width>
         <height>151</height>
        </rect>
       </property>
@@ -495,7 +498,7 @@ selection-background-color: #f57900;</string>
      <widget class="QCheckBox" name="checkBox">
       <property name="geometry">
        <rect>
-        <x>370</x>
+        <x>340</x>
         <y>280</y>
         <width>121</width>
         <height>21</height>
@@ -508,7 +511,7 @@ selection-background-color: #f57900;</string>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>240</x>
+        <x>210</x>
         <y>280</y>
         <width>91</width>
         <height>23</height>
@@ -611,7 +614,7 @@ selection-background-color: #f57900;</string>
           <string notr="true">color: rgb(255, 187, 0);</string>
          </property>
          <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffbb00;&quot;&gt;Quantidade Produzida&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffbb00;&quot;&gt;Quantidade Produzida (l)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -668,7 +671,7 @@ selection-background-color: #f57900;</string>
      <x>0</x>
      <y>0</y>
      <width>688</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

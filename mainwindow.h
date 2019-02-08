@@ -6,7 +6,8 @@
 #include <QSerialPort>
 #include <QSerialPortInfo>
 #include <QDebug>
-
+#include <QJsonObject>
+#include <QJsonDocument>
 
 namespace Ui {
 class MainWindow;
