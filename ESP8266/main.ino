@@ -31,8 +31,8 @@ DallasTemperature sensors(&oneWire);
 //DeviceAddress sensor1;
 LiquidCrystal lcd (rs,e,d4,d5,d6,d7);
 
-const char* SSID = "netvirtua11";
-const char* PASS = "0097964310";
+const char* SSID = "Andressa";
+const char* PASS = "12312322";
 const String SENSOR = "\"SENSOR\":";
 const String LEVEDURA = "\"LEVEDURA\":";
 const String LOWTEMP = "\"LOWTEMP\":";
@@ -62,7 +62,7 @@ void uploadSENSOR(){
   http.begin(LOCATION+UPLOAD);
   http.addHeader("Content-Type", "application/json");
   http.POST(JSON_SENSOR());
-  Serial.println(JSON_SENSOR());
+  Serial.print(JSON_SENSOR());
   http.end();
 } 
 
@@ -70,7 +70,7 @@ void uploadRELE(){
   http.begin(LOCATION+UPLOAD);
   http.addHeader("Content-Type", "application/json");
   http.POST(JSON_RELE());
-  Serial.println(JSON_RELE());
+  //Serial.println(JSON_RELE());
   http.end();
 }
 
@@ -87,9 +87,10 @@ String downloadWEB(){
   http.GET();
   String payload = http.getString();
   http.end();
-  Serial.println("INICIO DO PAYLOAD");
+  /*Serial.println("INICIO DO PAYLOAD");
   Serial.println(payload);
   Serial.println("FIM DO PAYLOAD");
+  */
   return payload;
 }
 
@@ -118,10 +119,10 @@ void setup()
   //sensors.getAddress(sensor1, 0);
   while(!verifyStatus()){
     delay(500);
-    Serial.println("Aguardando conexao...");
+    //Serial.println("Aguardando conexao...");
   }
   conexao = true;
-  Serial.println(conexao);
+  //Serial.println(conexao);
   uploadSTATUS();
   lcd.begin(20,4);
   delay(2000);
@@ -132,19 +133,19 @@ void print_lcd(double tempC, int Limite1, int Limite2, String data2);
 
 void loop(){
   conexao = verifyStatus();
-  Serial.print("Rele: ");
+  /*Serial.print("Rele: ");
   if(digitalRead(rele)==HIGH)
     Serial.println("Alto");
   else
-    Serial.println("Baixo");
+    Serial.println("Baixo");*/
   atualizarRele(downloadWEB());
   print_lcd(tempC, Limite1, Limite2, data2);
   print_data2(data2);
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);
   uploadSENSOR();
+  delay(1500);
   uploadRELE();
-  delay(500);
   uploadSTATUS();
 }
 
