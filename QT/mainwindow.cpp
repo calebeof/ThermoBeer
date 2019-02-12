@@ -22,17 +22,40 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+bool first_barra = false;
+QString concat;
 void MainWindow::dados()
 {
     auto info=serial.readAll();
-    auto inform = QJsonDocument::fromJson(info).object().toVariantMap();
-
-    if(inform.contains("SENSOR"))
-        ui->lcd_temp->display(inform["SENSOR"].toString());
+    QString valor;
+    qDebug() << info << endl;
+    if(info.contains("{") and concat.isEmpty() and !first_barra){
+        concat+=info;
+        first_barra = true;
+    }
+    if(!info.contains("{") and first_barra)
+        concat+=info;
+    if(info.contains("}") and !concat.isEmpty() and first_barra){
+        concat+=info;
+        first_barra = false;
+        qDebug() << concat << endl;
+        for(int i=0; i<concat.size() and valor.size()<5; i++){
+            if(concat[i]>='0' and concat[i]<='9' or concat[i]=='.')
+                valor+=concat[i];
+        }
+        concat.clear();
+    }
+    //auto inform = QJsonDocument::fromJson(info).object().toVariantMap();
+    if(valor.size()==5)
+            ui->lcd_temp->display(valor);
+    /*if(inform.contains("T1")){
+        ui->lcd_temp->display(inform["T1"].toString());
+        qDebug()<<"entrei";
+    }
     if(inform.contains("STATUS"))
-        ui->lb_status->setText(inform["STATUS"].toString());
-
+        ui->lb_status->setText(inform["STATUS"].toString());*/
+    /*for (QVariantMap::const_iterator iter = inform.begin(); iter!=inform.end(); iter++)
+        qDebug() << iter.key() << " " << iter.value() << endl;*/
 }
 
 void MainWindow::on_pb_conectar_clicked()
@@ -41,7 +64,8 @@ void MainWindow::on_pb_conectar_clicked()
     QString status="Conectado";
      serial.setPortName(ui->cbox_serial->currentText());
      serial.setBaudRate(ui->cbox_veloc->currentText().toInt());
-    if(serial.open(QIODevice::ReadWrite)){
+     qDebug() << serial.portName() << " " << serial.baudRate() << endl;
+    if(serial.open(QIODevice::ReadOnly)){
         ui->lb_status->setText(status);
         ui->lb_status->setStyleSheet("color: "+cor);
     }

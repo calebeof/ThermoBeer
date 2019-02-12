@@ -12,6 +12,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <dados.h>
+#include<QVariantMap>
 
 
 namespace Ui {
