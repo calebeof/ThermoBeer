@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <dados.h>
 #include<QVariantMap>
+#include <QtNetwork>
 
 
 namespace Ui {

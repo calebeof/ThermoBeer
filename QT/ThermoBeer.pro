@@ -6,6 +6,7 @@
 
 QT       += core gui serialport
 CONFIG+=extserialport
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

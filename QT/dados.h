@@ -2,6 +2,7 @@
 #define DADOS_H
 
 #include <QObject>
+#include <QtNetwork>
 
 class Dados : public QObject
 {
@@ -27,6 +28,7 @@ public:
     QString get_levedura()const;
     int get_quantidade()const;
     QString get_teor()const;
+    bool envio_levedura(QString value);
 
 signals:
 

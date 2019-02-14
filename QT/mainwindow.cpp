@@ -114,8 +114,11 @@ void MainWindow::on_save_button_clicked()
     out<<"Teor alcoolico: "<<levedura.get_teor()<<endl;
     arquivo.close();
     QMessageBox::information(this,"Salvar cadastro","Os dados foram salvos com sucesso!");
+    levedura.envio_levedura("http://thermobeer.herokuapp.com/envio_levedura");
     ui->ledit_nome->clear();
     ui->ledit_link->clear();
     ui->ledit_tipo->clear();
+
+
   }
 

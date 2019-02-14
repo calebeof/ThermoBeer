@@ -44,7 +44,19 @@ QString Dados::get_link() const
 
 QString Dados::get_teor() const
 {
- return teor;
+    return teor;
+}
+
+bool Dados::envio_levedura(QString value)
+{
+    QNetworkRequest request((QUrl(value)));
+    request.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
+    QJsonObject json;
+    json.insert("NOMECERVEJA",get_name());
+    QNetworkAccessManager thermo;
+    QNetworkReply *reply = thermo.post(request, QJsonDocument(json).toJson());
+    return true;
+
 }
 
 QString Dados::get_tipo() const
