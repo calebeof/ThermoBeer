@@ -102,7 +102,7 @@ void MainWindow::on_save_button_clicked()
     levedura.set_quantidade(ui->spbox_qtd->value());
 
 
-    QString lev=QFileDialog::getSaveFileName(this,"levedura","","Texto Puro(*.csv)");
+    QString lev=QFileDialog::getSaveFileName(this,"levedura","","Texto Puro(*.txt)");
     QFile arquivo(lev);
     arquivo.open(QIODevice::WriteOnly);
     QTextStream out(&arquivo);
