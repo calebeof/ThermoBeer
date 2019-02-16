@@ -1,75 +1,47 @@
 #include "dados.h"
 
-Dados::Dados(QObject *parent) : QObject(parent)
+Dados::Dados()
 {
-
+    first_barra = false;
 }
 
-void Dados::set_name(QString value)
+QString Dados::receberTemp(QString info)
 {
-name=value;
+    QString valor;
+    if(info.contains("{") and concat.isEmpty() and !first_barra){
+        concat+=info;
+        first_barra = true;
+    }
+    if(!info.contains("{") and first_barra)
+        concat+=info;
+    if(info.contains("}") and !concat.isEmpty() and first_barra){
+        concat+=info;
+        first_barra = false;
+        for(int i=0; i<concat.size() and valor.size()<5; i++){
+            if(concat[i]>='0' and concat[i]<='9' or concat[i]=='.')
+                valor+=concat[i];
+        }
+        concat.clear();
+    }
+    if(valor.size()==5)
+        return valor;
+    return "NULL";
 }
 
-void Dados::set_tipo(QString value)
-{
-tipo=value;
-}
-
-void Dados::set_link(QString value){
-    link=value;
-}
-
-void Dados::set_levedura(QString value){
-    tp_levedura=value;
-}
-
-void Dados::set_teor(QString value){
-    teor=value;
-}
-
-void Dados::set_quantidade(int value){
-    quantidade=value;
-}
-
-
-QString Dados::get_name() const
-{
- return name;
-}
-
-QString Dados::get_link() const
-{
- return link;
-}
-
-QString Dados::get_teor() const
-{
-    return teor;
-}
-
-bool Dados::envio_levedura(QString value)
+void Dados::envioLevedura(QString value, Cerveja cerveja)
 {
     QNetworkRequest request((QUrl(value)));
     request.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
     QJsonObject json;
-    json.insert("NOMECERVEJA",get_name());
+    json.insert("NOMECERVEJA",cerveja.getNome());
+    json.insert("TIPOCERVEJA",cerveja.getTipo());
+    json.insert("LEVEDURA",cerveja.getLevedura());
+    json.insert("LOWTEMP",cerveja.getLowTemp());
+    json.insert("HIGHTEMP",cerveja.getHighTemp());
+
     QNetworkAccessManager thermo;
     QNetworkReply *reply = thermo.post(request, QJsonDocument(json).toJson());
-    return true;
 
-}
-
-QString Dados::get_tipo() const
-{
- return tipo;
-}
-
-QString Dados::get_levedura() const
-{
- return tp_levedura;
-}
-
-int Dados::get_quantidade() const
-{
- return quantidade;
+    while(!reply->isFinished())
+        qApp->processEvents();
 }

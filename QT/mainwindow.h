@@ -11,9 +11,11 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <cerveja.h>
 #include <dados.h>
 #include<QVariantMap>
 #include <QtNetwork>
+
 
 
 namespace Ui {
@@ -24,7 +26,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 private:
-    Dados levedura;
+    Cerveja cerveja;
+    Dados data;
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);

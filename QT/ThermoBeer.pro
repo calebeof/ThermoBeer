@@ -31,11 +31,13 @@ win32:RC_ICONS += favicon-32x32.ico
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    dados.cpp
+    dados.cpp \
+    cerveja.cpp
 
 HEADERS += \
         mainwindow.h \
-    dados.h
+    dados.h \
+    cerveja.h
 
 FORMS += \
         mainwindow.ui
