@@ -8,6 +8,7 @@ private:
     String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE;
     bool CONEXAO; 
 public:
+    Dados();
     String JSON_SENSOR(double tempC);
     String JSON_RELE(bool estado);
     String JSON_STATUS();
