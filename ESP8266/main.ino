@@ -12,7 +12,7 @@
 const int sensor = D6, rele = D7;
 
 double tempC = 0
-OneWire oneWire(dados);
+OneWire oneWire(sensor);
 DallasTemperature sensors(&oneWire);
 HTTPClient http;
 Dados dados;
