@@ -1,6 +1,8 @@
 #ifndef DADOS_H
 #define DADOS_H
 
+#include "Arduino.h" 
+
 class Dados{
 private:
     String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE;
