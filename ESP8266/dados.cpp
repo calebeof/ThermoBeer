@@ -56,11 +56,12 @@ bool Dados::verifySTATUS(){
   return CONEXAO = true;  
 }
 
-bool Dados::updateRELE(string comando){
+int Dados::updateRELE(string comando){
     if(comando.startsWith("{") and comando.endsWith("}")){
         if(comando.indexOf(RELE + " 1")>0)
-            return true;
+            return 1;
         else if (comando.indexOf(RELE + " 0")>0)
-            return false;
-  }
+            return 0;
+    }
+    return -1;
 }
