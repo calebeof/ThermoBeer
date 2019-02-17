@@ -5,7 +5,7 @@
 
 class Dados{
 private:
-    String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE;
+    String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE, SENSOR;
     bool CONEXAO; 
 public:
     Dados();
