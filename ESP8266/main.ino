@@ -39,7 +39,9 @@ void setup()
 void loop(){
   if(Serial.available()>0)
     data2 = Serial.read();
-  dados.updateRELE(dados.downloadWEB());
+  int update = dados.updateRELE(dados.downloadWEB());
+  if(update==1 or update==0)
+    digitalWrite(rele, update);
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);
   dados.uploadSENSOR();
