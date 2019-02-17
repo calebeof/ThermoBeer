@@ -2,11 +2,15 @@
 #define DADOS_H
 
 #include "Arduino.h" 
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
 
 class Dados{
 private:
-    String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE, SENSOR;
+    String LOCATION, UPLOAD, DOWNLOAD, STATUS, RELE, SENSOR, SSID, PASS;
     bool CONEXAO; 
+    HTTPClient http;
 public:
     Dados();
     String JSON_SENSOR(double tempC);
