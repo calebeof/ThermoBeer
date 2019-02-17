@@ -9,12 +9,13 @@
 
 #define D6 12
 #define D7 13
-const int dados = D6, rele = D7;
+const int sensor = D6, rele = D7;
 
 double tempC = 0
 OneWire oneWire(dados);
 DallasTemperature sensors(&oneWire);
 HTTPClient http;
+Dados dados;
 
 const char* SSID = "Andressa";
 const char* PASS = "12312322";
