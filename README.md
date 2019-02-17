@@ -28,7 +28,7 @@ Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou M
 
 - [ESP8266](https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf)
 - Sensor de Temperatura à Prova D'água [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
- - [Módulo Relé] (https://www.fecegypt.com/uploads/dataSheet/1480848003_2_channel_5v_10a_relay_module.pdf)
+ - [Módulo Relé](https://www.fecegypt.com/uploads/dataSheet/1480848003_2_channel_5v_10a_relay_module.pdf)
 
 #### O Circuito
 
