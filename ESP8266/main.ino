@@ -31,7 +31,7 @@ void setup()
   WiFi.begin(SSID, PASS);
   while(!dados.verifySTATUS())
     delay(500);
-  uploadSTATUS();
+  dados.uploadSTATUS();
   lcd.begin(20,4);
   delay(2000);
 }
