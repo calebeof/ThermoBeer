@@ -29,25 +29,25 @@ void Cerveja::setTeor(QString value){
 
 void Cerveja::setTemp()
 {
-    if(getLevedura() == "Abbaye"){
+    if(tp_levedura == "Abbaye"){
         hightemp = 25;
         lowtemp = 17;
-    } else if(getLevedura() == "Belle Saison"){
+    } else if(tp_levedura == "Belle Saison"){
         hightemp = 35;
         lowtemp = 15;
-    } else if(getLevedura() == "BRY-97"){
+    } else if(tp_levedura == "BRY-97"){
         hightemp = 22;
         lowtemp = 15;
-    } else if(getLevedura() == "Diamond"){
+    } else if(tp_levedura == "Diamond"){
         hightemp = 15;
         lowtemp = 10;
-    } else if(getLevedura() == "Munich"){
+    } else if(tp_levedura == "Munich"){
         hightemp = 22;
         lowtemp = 17;
-    } else if(getLevedura() == "Nottingham"){
+    } else if(tp_levedura == "Nottingham"){
         hightemp = 22;
         lowtemp = 10;
-    } else if(getLevedura() == "Windsor"){
+    } else if(tp_levedura == "Windsor"){
         hightemp = 22;
         lowtemp = 15;
     }

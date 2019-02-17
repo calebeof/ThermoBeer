@@ -63,21 +63,14 @@ void MainWindow::on_save_button_clicked()
     cerveja.setLink(ui->ledit_link->text());
     cerveja.setTipo(ui->ledit_tipo->text());
     cerveja.setLevedura(ui->lev_combo->currentText());
-    cerveja.setTeor(ui->lb_teor->text());
+    cerveja.setTeor(ui->ledit_teor->text());
     cerveja.setQuantidade(ui->spbox_qtd->value());
     cerveja.setTemp();
-
-    QString lev=QFileDialog::getSaveFileName(this,"levedura","","Texto Puro(*.txt)");
-    QFile arquivo(lev);
-    arquivo.open(QIODevice::WriteOnly);
-    QTextStream out(&arquivo);
-    out<<"Nome: "<<cerveja.getNome()<<endl;
-    out<<"Tipo: "<<cerveja.getTipo()<<endl;
-    out<<"Link: "<<cerveja.getLink()<<endl;
-    out<<"Levedura: "<<cerveja.getLevedura()<<endl;
-    out<<"Quantidade produzida: "<<cerveja.getQuantidade()<<endl;
-    out<<"Teor alcoolico: "<<cerveja.getTeor()<<endl;
-    arquivo.close();
+    QString nome = QFileDialog::getSaveFileName(this, "lista_cervejas", "", "(*.txt)");
+    lista_de_cervejas.addCerveja(cerveja);
+    qDebug() << cerveja.getLowTemp() << " " << cerveja.getHighTemp() << endl;
+    data.salvarCerveja(cerveja, nome, lista_de_cervejas);
+    ui->cb_cerveja->addItem(cerveja.getNome());
     QMessageBox::information(this,"Salvar cadastro","Os dados foram salvos com sucesso!");
     data.envioLevedura("http://thermobeer.herokuapp.com/envio_levedura", cerveja);
     ui->ledit_nome->clear();
@@ -85,3 +78,15 @@ void MainWindow::on_save_button_clicked()
     ui->ledit_tipo->clear();
   }
 
+
+
+
+void MainWindow::on_btn_mostrar_clicked()
+{
+    Cerveja aux = lista_de_cervejas.find(ui->cb_cerveja->currentText());
+    ui->lb_tipo->setText(aux.getTipo());
+    ui->lb_link->setText(aux.getLink());
+    ui->lb_levedura->setText(aux.getLevedura());
+    ui->lb_qtdprod->setText(QString::number(aux.getQuantidade()));
+    ui->lb_teor->setText(aux.getTeor());
+}

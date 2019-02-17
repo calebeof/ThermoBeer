@@ -4,7 +4,9 @@
 #include <QString>
 #include <QNetworkRequest>
 #include <cerveja.h>
-
+#include <cervejas.h>
+#include <QFileDialog>
+#include <QFile>
 
 class Dados
 {
@@ -15,6 +17,7 @@ public:
     Dados();
     void envioLevedura(QString value, Cerveja cerveja);
     QString receberTemp(QString info);
+    void salvarCerveja(Cerveja cerveja, QString nome, Cervejas lista_cervejas);
 };
 
 #endif // DADOS_H

@@ -32,12 +32,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     dados.cpp \
-    cerveja.cpp
+    cerveja.cpp \
+    cervejas.cpp
 
 HEADERS += \
         mainwindow.h \
     dados.h \
-    cerveja.h
+    cerveja.h \
+    cervejas.h
 
 FORMS += \
         mainwindow.ui
