@@ -12,7 +12,7 @@ public:
     void uploadSENSOR();
     void uploadRELE();
     void uploadSTATUS();
-    int updateRELE(string comando);
+    int updateRELE(String comando);
     String downloadWEB();
     bool verifySTATUS();
 };
