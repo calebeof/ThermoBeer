@@ -31,7 +31,6 @@ void setup()
   WiFi.begin(SSID, PASS);
   while(!dados.verifySTATUS())
     delay(500);
-  conexao = true;
   uploadSTATUS();
   lcd.begin(20,4);
   delay(2000);
