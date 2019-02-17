@@ -28,11 +28,11 @@ Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou M
 
 - [ESP8266](https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf)
 - Sensor de Temperatura à Prova D'água [DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
- - [Módulo Relé] 5V (http://www.fecegypt.com/uploads/dataSheet/1480848003_2_channel_5v_10a_relay_module.pdf)
+ - [Módulo Relé] (http://www.fecegypt.com/uploads/dataSheet/1480848003_2_channel_5v_10a_relay_module.pdf) 5V 
 
 #### O Circuito
 
-[circuito](figuras/circuito.jpg)
+![circuito](figuras/circuito.jpg)
 
 Utilizamos o sensor DS18B20 pois este é à prova d'água, facilitando o processo de captura das informações da temperatura da cerveja. Além disso, precisamos do módulo relé de 5V para acionar o refrigerador, a fim de permitir o controle da situação da fermentação pelo usuário. É notável aqui que a ESP8266 é fundamental para todo o processo de alimentação do circuito e da comunicação tanto com a página web quanto com o software para computador, visto que ela é quem passa e recebe as informações para o circuito, sendo o "cérebro" de tudo.
 
