@@ -133,6 +133,11 @@ void print_lcd(double tempC, int Limite1, int Limite2, String data2);
 
 void loop(){
   conexao = verifyStatus();
+  if(Serial.available()>0){
+    data2 = Serial.read();
+  }
+  print_data2(data2);
+  print_lcd(tempC, Limite1, Limite2, data2);
   /*Serial.print("Rele: ");
   if(digitalRead(rele)==HIGH)
     Serial.println("Alto");
