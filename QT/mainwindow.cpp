@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for(auto& item : QSerialPortInfo::standardBaudRates()){
      ui->cbox_veloc->addItem(QString::number(item) );
-}
+    }
 }
 
 MainWindow::~MainWindow()
@@ -35,7 +35,7 @@ void MainWindow::on_pb_conectar_clicked()
 {
     QString cor="yellow";
     QString status="Conectado";
-        serial.setPortName(ui->cbox_serial->currentText());
+    serial.setPortName(ui->cbox_serial->currentText());
     serial.setBaudRate(ui->cbox_veloc->currentText().toInt());
     if(serial.open(QIODevice::ReadWrite)){
         ui->lb_status->setText(status);
@@ -59,6 +59,26 @@ void MainWindow::on_pb_reiniciar_clicked()
 
 void MainWindow::on_save_button_clicked()
 {
+    if(ui->ledit_nome->text().isEmpty()){
+        QMessageBox::warning(this,"Dados para cadastro","Insira o nome da cerveja!");
+        return;
+    }
+    if(ui->ledit_link->text().isEmpty()){
+        QMessageBox::warning(this,"Dados para cadastro","Insira o link da receita da cerveja!");
+        return;
+    }
+    if(ui->ledit_tipo->text().isEmpty()){
+        QMessageBox::warning(this,"Dados para cadastro","Insira o tipo de levedura da cerveja!");
+        return;
+    }
+    if(ui->spbox_qtd->value()==0){
+        QMessageBox::warning(this,"Dados para cadastro","Insira a quantidade de cerveja a ser produzida!");
+        return;
+    }
+    if(ui->lev_combo->currentText()=="Escolha uma levedura..."){
+        QMessageBox::warning(this,"Dados para cadastro","Insira a levedura da cerveja!");
+        return;
+    }
     cerveja.setNome(ui->ledit_nome->text());
     cerveja.setLink(ui->ledit_link->text());
     cerveja.setTipo(ui->ledit_tipo->text());
@@ -76,17 +96,35 @@ void MainWindow::on_save_button_clicked()
     ui->ledit_nome->clear();
     ui->ledit_link->clear();
     ui->ledit_tipo->clear();
-  }
-
-
-
-
+ }
 void MainWindow::on_btn_mostrar_clicked()
 {
-    Cerveja aux = lista_de_cervejas.find(ui->cb_cerveja->currentText());
-    ui->lb_tipo->setText(aux.getTipo());
-    ui->lb_link->setText(aux.getLink());
-    ui->lb_levedura->setText(aux.getLevedura());
-    ui->lb_qtdprod->setText(QString::number(aux.getQuantidade()));
-    ui->lb_teor->setText(aux.getTeor());
+    QString texto = ui->cb_cerveja->currentText();
+    if(texto!="Escolha uma cerveja..."){
+        Cerveja aux = lista_de_cervejas.find(texto);
+        cerveja.setNome(aux.getNome());
+        cerveja.setLink(aux.getLink());
+        cerveja.setTipo(aux.getTipo());
+        cerveja.setLevedura(aux.getLevedura());
+        cerveja.setTeor(aux.getTeor());
+        cerveja.setQuantidade(aux.getQuantidade());
+        cerveja.setTemp();
+        data.envioLevedura("http://thermobeer.herokuapp.com/envio_levedura", cerveja);
+        ui->lb_tipo->setText(aux.getTipo());
+        ui->lb_link->setText(aux.getLink());
+        ui->lb_levedura->setText(aux.getLevedura());
+        ui->lb_qtdprod->setText(QString::number(aux.getQuantidade()));
+        ui->lb_teor->setText(aux.getTeor());
+    }else
+        QMessageBox::information(this, "Mostrar dados","Escolha uma cerveja!");
+}
+
+void MainWindow::on_btn_carregar_clicked()
+{
+    QString nome = QFileDialog::getOpenFileName(this, "lista_cervejas", "", "(*.txt)");
+    if(data.carregarCervejas(nome, lista_de_cervejas)){
+        for(int i=0; i<lista_de_cervejas.size(); i++)
+            ui->cb_cerveja->addItem(lista_de_cervejas[i].getNome());
+    }else
+       QMessageBox::information(this, "Carregar dados","Não foi possível carregar os dados, tente novamente.");
 }

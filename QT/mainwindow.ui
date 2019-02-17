@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
@@ -49,7 +49,7 @@
      <string notr="true">background-color: #ffffff;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_connect">
      <attribute name="title">
@@ -234,10 +234,10 @@ selection-background-color: #f57900;</string>
        <bool>true</bool>
       </property>
       <property name="value" stdset="0">
-       <double>30.000000000000000</double>
+       <double>0.000000000000000</double>
       </property>
       <property name="intValue" stdset="0">
-       <number>30</number>
+       <number>0</number>
       </property>
      </widget>
      <widget class="QLabel" name="lb_temp">
@@ -848,7 +848,7 @@ selection-background-color: #f57900;</string>
      <widget class="QPushButton" name="btn_mostrar">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>160</x>
         <y>270</y>
         <width>91</width>
         <height>23</height>
@@ -866,6 +866,27 @@ selection-background-color: #f57900;</string>
        </iconset>
       </property>
      </widget>
+     <widget class="QPushButton" name="btn_carregar">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>270</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #ffbb00;</string>
+      </property>
+      <property name="text">
+       <string>Carregar</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <selectedon>:/resource/save.png</selectedon>
+       </iconset>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -875,7 +896,7 @@ selection-background-color: #f57900;</string>
      <x>0</x>
      <y>0</y>
      <width>714</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

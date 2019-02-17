@@ -29,22 +29,46 @@ QString Dados::receberTemp(QString info)
     return "NULL";
 }
 
-void Dados::salvarCerveja(Cerveja cerveja, QString nome, Cervejas lista_cervejas)
+void Dados::salvarCerveja(Cerveja cerveja, QString nome, Cervejas &lista_cervejas)
 {
 
     QFile arquivo(nome);
     arquivo.open(QIODevice::WriteOnly);
     QTextStream out(&arquivo);
     for(int i=0; i<lista_cervejas.size(); i++){
-        out<<"Nome: "<<lista_cervejas[i].getNome()<<endl;
-        out<<"Tipo: "<<lista_cervejas[i].getTipo()<<endl;
-        out<<"Link: "<<lista_cervejas[i].getLink()<<endl;
-        out<<"Levedura: "<<lista_cervejas[i].getLevedura()<<endl;
-        out<<"Quantidade produzida: "<<lista_cervejas[i].getQuantidade()<<endl;
-        out<<"Teor alcoolico: "<<lista_cervejas[i].getTeor()<<endl;
+        out<<lista_cervejas[i].getNome();
+        out<<"," <<lista_cervejas[i].getTipo();
+        out<<","<<lista_cervejas[i].getLink();
+        out<<","<<lista_cervejas[i].getLevedura();
+        out<<","<<lista_cervejas[i].getQuantidade();
+        out<<","<<lista_cervejas[i].getTeor();
+        out << endl;
     }
-    out << endl;
     arquivo.close();
+}
+
+bool Dados::carregarCervejas(QString nome, Cervejas &lista_de_cervejas)
+{
+    QFile file(nome);
+    if(!file.open(QIODevice::ReadOnly))
+        return false;
+    QTextStream in(&file);
+    QString line;
+    while(in.readLineInto(&line)){
+        QStringList data = line.split(",");
+        Cerveja aux;
+        if(data.size()==6){
+            aux.setNome(data[0]);
+            aux.setTipo(data[1]);
+            aux.setLink(data[2]);
+            aux.setLevedura(data[3]);
+            aux.setQuantidade(data[4].toInt());
+            aux.setTeor(data[5]);
+            lista_de_cervejas.addCerveja(aux);
+        }
+     }
+     file.close();
+     return true;
 }
 
 void Dados::envioLevedura(QString value, Cerveja cerveja)

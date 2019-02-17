@@ -17,7 +17,8 @@ public:
     Dados();
     void envioLevedura(QString value, Cerveja cerveja);
     QString receberTemp(QString info);
-    void salvarCerveja(Cerveja cerveja, QString nome, Cervejas lista_cervejas);
+    void salvarCerveja(Cerveja cerveja, QString nome, Cervejas &lista_cervejas);
+    bool carregarCervejas(QString nome, Cervejas &lista_de_cervejas);
 };
 
 #endif // DADOS_H

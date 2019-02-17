@@ -31,7 +31,6 @@ private:
     Cerveja cerveja;
     Cervejas lista_de_cervejas;
     Dados data;
-
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -40,12 +39,10 @@ public:
 private slots:
      void dados();
      void on_pb_conectar_clicked();
-
      void on_pb_reiniciar_clicked();
      void on_save_button_clicked();
-
      void on_btn_mostrar_clicked();
-
+     void on_btn_carregar_clicked();
 private:
     Ui::MainWindow *ui;
 };
