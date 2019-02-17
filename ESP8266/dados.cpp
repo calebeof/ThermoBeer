@@ -6,6 +6,7 @@ Dados::Dados(){
     DOWNLOAD = "download";
     RELE = "\"RELE\":";
     STATUS =  "\"STATUS\":";
+    SENSOR = "\"SENSOR\":";
 }
 
 String Dados::JSON_SENSOR(double tempC){
