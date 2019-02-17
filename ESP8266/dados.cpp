@@ -50,7 +50,7 @@ String Dados::downloadWEB(){
   return payload;
 }
 
-bool Dados::verifyStatus(){
+bool Dados::verifySTATUS(){
   if(WiFi.status() != WL_CONNECTED)
     return CONEXAO = false;
   return CONEXAO = true;  
