@@ -26,7 +26,7 @@ Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou M
 
 ![QTInicial](figuras/telainicialQT.PNG)
 
-A tela de início da aplicação do projeto é bastante direta. Primeiro, o usuário deve conectar o seu cabo microUSB da ESP8266 com alguma entrada USB do seu computador. A seguir, deve ser selecionada a porta na qual a placa está conectada. Para que as informações sejam passadas, faz-se necessário ter uma velocidade específica (em bauds) para comunicação, sendo selecionado 15200 a padrão da placa. Haverá um texto exibindo se o programa conseguiu se conectar com a placa ou não, após clicar no botão de Conectar. Se conseguiu, a temperatura será passada instantaneamente. Se não foi possível, há a possibilidade de clicar no botão Reiniciar, no qual tentará a comunicação novamente. 
+A tela de início da aplicação do projeto é bastante direta. Primeiro, o usuário deve conectar o seu cabo microUSB da ESP8266 com alguma entrada USB do seu computador. A seguir, deve ser selecionada a porta na qual a placa está conectada. Para que as informações sejam passadas, faz-se necessário ter uma velocidade específica (em bauds) para comunicação, sendo selecionado 115200 a padrão da placa. Haverá um texto exibindo se o programa conseguiu se conectar com a placa ou não, após clicar no botão de Conectar. Se conseguiu, a temperatura será passada instantaneamente. Se não foi possível, há a possibilidade de clicar no botão Reiniciar, no qual tentará a comunicação novamente. 
 
 #### Cadastrando novas cervejas
 ![QTCadastro](figuras/cadastroQT.PNG)
