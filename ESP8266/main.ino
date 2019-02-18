@@ -16,7 +16,7 @@ OneWire oneWire(sensor);
 DallasTemperature sensors(&oneWire);
 HTTPClient http;
 Dados dados;
-int update = dados.updateRELE(dados.downloadWEB());
+int update;
 
 const char* SSID = "Andressa";
 const char* PASS = "12312322";
@@ -37,7 +37,7 @@ void setup()
 }
 
 void loop(){
-  if(Serial.available()>0)
+  update = dados.updateRELE(dados.downloadWEB());
   if(update==1 or update==0)
     digitalWrite(rele, update);
   sensors.requestTemperatures();
