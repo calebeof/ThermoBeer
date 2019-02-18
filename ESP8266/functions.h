@@ -8,7 +8,7 @@
 
 class Functions{
 private:
-    String LOCATION, _UPLOAD, _DOWNLOAD, _STATUS, _RELE, _SENSOR;
+    String _LOCATION, _UPLOAD, _DOWNLOAD, _STATUS, _RELE, _SENSOR;
     bool _CONEXAO; 
     HTTPClient _http;
 public:
