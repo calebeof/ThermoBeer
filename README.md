@@ -27,7 +27,7 @@ As etapas de produção de uma cerveja são demoradas. Algumas delas são a malt
 
 ![logo](figuras/icone.png)
 
-Como este processo manual pode realmente durar bastante tempo e paciência destes produtores, surge a proposta do ThermoBeer, que ataca os problemas maiores desta etapa: a checagem da temperatura e o resfriamento. 
+Como este processo manual pode realmente durar bastante tempo e paciência destes produtores, surge a proposta do ThermoBeer, que ataca os problemas maiores desta etapa: a checagem da temperatura e o resfriamento. Além desse manual, temos uma [apresentação] (http://bit.ly/slidetb) mais dinâmica disponível.
 
 
 ## Manual do Usuário
