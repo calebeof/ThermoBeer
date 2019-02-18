@@ -19,7 +19,35 @@ A ideia do projeto é que o cervejeiro artesanal possa ter acesso à temperatura
 
 ### Como adquirir o ThermoBeer?
 
-Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou Mac, basta fazer o download do repositório e executar o arquivo MedTask.pro com o QT Creator. Já para Windows, há a possibilidade de fazer a instalação rápida e prática com o ThermoBeerInstaller, bastando apenas baixar o arquivo .zip presente neste repositório e extrai-lo no seu pc. Em seguida, dentro do instalador, apenas necessitarás de passar por alguns passos simples que demorarão segundos para, em seguida, poder utilizar o ThermoBeer normalmente. 
+Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou Mac, basta fazer o download do repositório e executar o arquivo ThermoBeer.pro com o QT Creator. Já para Windows, há a possibilidade de fazer a instalação rápida e prática com o ThermoBeerInstaller, bastando apenas baixar o arquivo .zip presente neste repositório e extrai-lo no seu pc. Em seguida, dentro do instalador, apenas necessitarás de passar por alguns passos simples que demorarão segundos para, em seguida, poder utilizar o ThermoBeer normalmente. 
+
+### Utilizando o software do ThermoBeer
+#### Monitorando a temperatura 
+
+![QTInicial](figuras/telainicialQT.PNG)
+
+A tela de início da aplicação do projeto é bastante direta. Primeiro, o usuário deve conectar o seu cabo microUSB da ESP8266 com alguma entrada USB do seu computador. A seguir, deve ser selecionada a porta na qual a placa está conectada. Para que as informações sejam passadas, faz-se necessário ter uma velocidade específica (em bauds) para comunicação, sendo selecionado 15200 a padrão da placa. Haverá um texto exibindo se o programa conseguiu se conectar com a placa ou não, após clicar no botão de Conectar. Se conseguiu, a temperatura será passada instantaneamente. Se não foi possível, há a possibilidade de clicar no botão Reiniciar, no qual tentará a comunicação novamente. 
+
+#### Cadastrando novas cervejas
+![QTCadastro](figuras/cadastroQT.PNG)
+
+Também há a possibilidade de cadastrar suas cervejas, para maior facilidade em selecioná-las posteriormente. Na aba de Cadastro, devem ser preenchidos o Nome, o Tipo, o Link da Receita (para consulta a posteriori), a Levedura da cerveja, da Quantidade Produzida e o Teor Alcóolico. Qualquer uma dessas informações não preenchidas, resultará em uma mensagem de aviso para serem informadas, ou seja, são obrigatórias. Basta, em seguida, clicar em Salvar. Ao clicar em Salvar, o usuário deve escolher onde quer salvar o seu arquivo de cervejas, podendo organizá-las em pastas de categorias depois.
+
+#### Carregando cervejas salvas
+![QTCarregar](figuras/carregarQT.PNG)
+
+Na aba de Dados, há a possibilidade de consultar os arquivos das cervejas salvas e carregá-las para o programa, a fim de selecioná-las para verificar os limites corrigidos da levedura no site. Ao clicar em Mostrar, será enviada a informação diretamente ao [site](https://thermobeer.herokuapp.com), se houver conexão da ESP8266 com a internet, com as delimitações dos limites necessários para cada levedura. 
+
+### Utilizando o site da ThermoBeer
+
+### Monitorando a temperatura com os limites
+
+![Tela Inicial](figuras/telainicialWEB.PNG)
+
+O [site](https://thermobeer.herokuapp.com) da ThermoBeer permite que o usuário tenha acesso remoto à aplicação, apenas sendo necessário conexão com a internet. Aqui, temos uma barra de temperatura do termômetro com os ajustes finos dos limites da levedura escolhida via software do computador, de maneira a mostrar para o usuário se ele deve ou não desligar o relé do refrigerador.
+
+Também há as informações da conexão, da temperatura, da cerveja atual (escolhida previamente) e do estado do relé. Os botões de ligar e desligar permitem o controle do relé responsável pela refrigeração, de maneira a conseguir realizar o propósito de oferecer ao usuário um controle fora do ambiente do nosso circuito. 
+
 
 ### Informações técnicas
 
