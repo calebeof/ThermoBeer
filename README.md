@@ -58,11 +58,13 @@ Na aba de Dados, há a possibilidade de consultar os arquivos das cervejas salva
 
 ### Utilizando o site da ThermoBeer
 
-### Monitorando a temperatura com os limites
+#### Monitorando a temperatura com os limites
 
 ![Tela Inicial](figuras/telainicialWEB.PNG)
 
 O [site](https://thermobeer.herokuapp.com) da ThermoBeer permite que o usuário tenha acesso remoto à aplicação, apenas sendo necessário conexão com a internet. Aqui, temos uma barra de temperatura do termômetro com os ajustes finos dos limites da levedura escolhida via software do computador, de maneira a mostrar para o usuário se ele deve ou não desligar o relé do refrigerador.
+
+#### Alterando o estado do Relé
 
 Também há as informações da conexão, da temperatura, da cerveja atual (escolhida previamente) e do estado do relé. Os botões de ligar e desligar permitem o controle do relé responsável pela refrigeração, de maneira a conseguir realizar o propósito de oferecer ao usuário um controle fora do ambiente do nosso circuito. 
 
