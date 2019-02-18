@@ -45,6 +45,7 @@ void Dados::uploadSTATUS(){
   _http.begin(LOCATION+_UPLOAD);
   _http.addHeader("Content-Type", "application/json");
   _http.POST(JSON_STATUS());
+  Serial.println(JSON_STATUS());
   _http.end();
 }
 
