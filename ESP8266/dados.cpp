@@ -1,67 +1,72 @@
 #include "dados.h"
+#include "Arduino.h"
+#include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
+
+HTTPClient _http;
 
 Dados::Dados(){
     LOCATION = "http://thermobeer.herokuapp.com/";
-    UPLOAD = "upload";
-    DOWNLOAD = "download";
-    RELE = "\"RELE\":";
-    STATUS =  "\"STATUS\":";
-    SENSOR = "\"SENSOR\":";
+    _UPLOAD = "upload";
+    _DOWNLOAD = "download";
+    _RELE = "\"RELE\":";
+    _STATUS =  "\"STATUS\":";
+    _SENSOR = "\"SENSOR\":";
+    _CONEXAO = 0;
 }
 
 String Dados::JSON_SENSOR(double tempC){
-  return "{" + SENSOR + String(tempC) + "}";
+  return "{" + _SENSOR + String(tempC) + "}";
 }
 
 String Dados::JSON_RELE(bool estado){
-  return "{" + RELE + estado + "}";
+  return "{" + _RELE + estado + "}";
 }
 
 String Dados::JSON_STATUS(){
-  return "{" + STATUS + CONEXAO + "}";
+  return "{" + _STATUS + _CONEXAO + "}";
 }
 
-void Dados::uploadSENSOR(){
-  http.begin(LOCATION+UPLOAD);
-  http.addHeader("Content-Type", "application/json");
-  http.POST(JSON_SENSOR());
-  Serial.print(JSON_SENSOR());
-  http.end();
+void Dados::uploadSENSOR(double tempC){
+  _http.begin(LOCATION+_UPLOAD);
+  _http.addHeader("Content-Type", "application/json");
+  _http.POST(JSON_SENSOR(tempC));
+  _http.end();
 } 
 
-void uploadRELE(){
-  http.begin(LOCATION+UPLOAD);
-  http.addHeader("Content-Type", "application/json");
-  http.POST(JSON_RELE());
-  http.end();
+void Dados::uploadRELE(bool estado){
+  _http.begin(LOCATION+_UPLOAD);
+  _http.addHeader("Content-Type", "application/json");
+  _http.POST(JSON_RELE(estado));
+  _http.end();
 }
 
 void Dados::uploadSTATUS(){
-  http.begin(LOCATION+UPLOAD);
-  http.addHeader("Content-Type", "application/json");
-  http.POST(JSON_STATUS());
-  http.end();
+  _http.begin(LOCATION+_UPLOAD);
+  _http.addHeader("Content-Type", "application/json");
+  _http.POST(JSON_STATUS());
+  _http.end();
 }
 
 String Dados::downloadWEB(){
-  http.begin(LOCATION+DOWNLOAD);
-  http.GET();
-  String payload = http.getString();
-  http.end();
+  _http.begin(LOCATION+_DOWNLOAD);
+  _http.GET();
+  String payload = _http.getString();
+  _http.end();
   return payload;
 }
 
 bool Dados::verifySTATUS(){
   if(WiFi.status() != WL_CONNECTED)
-    return CONEXAO = false;
-  return CONEXAO = true;  
+    return _CONEXAO = false;
+  return _CONEXAO = true;  
 }
 
 int Dados::updateRELE(String comando){
     if(comando.startsWith("{") and comando.endsWith("}")){
-        if(comando.indexOf(RELE + " 1")>0)
+        if(comando.indexOf(_RELE + " 1")>0)
             return 1;
-        else if (comando.indexOf(RELE + " 0")>0)
+        else if (comando.indexOf(_RELE + " 0")>0)
             return 0;
     }
     return -1;

@@ -11,11 +11,12 @@
 #define D7 13
 const int sensor = D6, rele = D7;
 
-double tempC = 0
+double tempC = 0;
 OneWire oneWire(sensor);
 DallasTemperature sensors(&oneWire);
 HTTPClient http;
 Dados dados;
+int update = dados.updateRELE(dados.downloadWEB());
 
 const char* SSID = "Andressa";
 const char* PASS = "12312322";
@@ -32,20 +33,17 @@ void setup()
   while(!dados.verifySTATUS())
     delay(500);
   dados.uploadSTATUS();
-  lcd.begin(20,4);
   delay(2000);
 }
 
 void loop(){
   if(Serial.available()>0)
-    data2 = Serial.read();
-  int update = dados.updateRELE(dados.downloadWEB());
   if(update==1 or update==0)
     digitalWrite(rele, update);
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);
-  dados.uploadSENSOR();
+  dados.uploadSENSOR(tempC);
   delay(1500);
-  dados.uploadRELE();
+  dados.uploadRELE(update);
   dados.uploadSTATUS();
 }
