@@ -12,6 +12,7 @@ Aplicação do ThermoBeer com a framework Qt, a  e o microcontrolador ESP8266.
     * [Carregando cervejas salvas](https://github.com/calebeof/ThermoBeer#carregando-cervejas-salvas)
   * [Utilizando o site do ThermoBeer](https://github.com/calebeof/ThermoBeer#utilizando-o-site-da-thermobeer)
     * [Monitorando a temperatura com os limites](https://github.com/calebeof/ThermoBeer#monitorando-a-temperatura-com-os-limites)
+    * [Alterando o estado do relé](https://github.com/calebeof/ThermoBeer#alterando-o-estado-do-rel%C3%A9)
   * [Informações técnicas](https://github.com/calebeof/ThermoBeer#informa%C3%A7%C3%B5es-t%C3%A9cnicas)
     * [Materiais](https://github.com/calebeof/ThermoBeer#materiais)
     * [O Circuito](https://github.com/calebeof/ThermoBeer#o-circuito)
