@@ -38,8 +38,13 @@ void setup()
 
 void loop(){
   update = dados.updateRELE(dados.downloadWEB());
-  if(update==1 or update==0)
-    digitalWrite(rele, update);
+  //Serial.println(update);
+  
+  if(update == 1)
+   digitalWrite(rele, HIGH);
+  else if(update==0)
+   digitalWrite(rele, LOW);
+   
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);
   dados.uploadSENSOR(tempC);

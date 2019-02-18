@@ -3,7 +3,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 
-HTTPClient _http;
 
 Dados::Dados(){
     LOCATION = "http://thermobeer.herokuapp.com/";
@@ -30,6 +29,7 @@ String Dados::JSON_STATUS(){
 void Dados::uploadSENSOR(double tempC){
   _http.begin(LOCATION+_UPLOAD);
   _http.addHeader("Content-Type", "application/json");
+  Serial.print(JSON_SENSOR(tempC));
   _http.POST(JSON_SENSOR(tempC));
   _http.end();
 } 
