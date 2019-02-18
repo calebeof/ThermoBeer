@@ -35,14 +35,14 @@ void Functions::uploadSENSOR(double tempC){
 } 
 
 void Functions::uploadRELE(bool estado){
-  _http.begin(LOCATION+_UPLOAD);
+  _http.begin(_LOCATION+_UPLOAD);
   _http.addHeader("Content-Type", "application/json");
   _http.POST(JSON_RELE(estado));
   _http.end();
 }
 
 void Functions::uploadSTATUS(){
-  _http.begin(LOCATION+_UPLOAD);
+  _http.begin(_LOCATION+_UPLOAD);
   _http.addHeader("Content-Type", "application/json");
   _http.POST(JSON_STATUS());
   Serial.println(JSON_STATUS());
@@ -50,7 +50,7 @@ void Functions::uploadSTATUS(){
 }
 
 String Functions::downloadWEB(){
-  _http.begin(LOCATION+_DOWNLOAD);
+  _http.begin(_LOCATION+_DOWNLOAD);
   _http.GET();
   String payload = _http.getString();
   _http.end();
