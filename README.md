@@ -38,7 +38,7 @@ A ideia do projeto é que o cervejeiro artesanal possa ter acesso à temperatura
 
 ### Como adquirir o ThermoBeer?
 
-Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou Mac, basta fazer o download do repositório e executar o arquivo ThermoBeer.pro com o QT Creator. Já para Windows, há a possibilidade de fazer a instalação rápida e prática com o ThermoBeerInstaller, bastando apenas baixar o arquivo .zip presente neste repositório e extrai-lo no seu pc. Em seguida, dentro do instalador, apenas necessitarás de passar por alguns passos simples que demorarão segundos para, em seguida, poder utilizar o ThermoBeer normalmente. 
+Se desejas utilizar o software do ThermoBeer e usa uma distribuição Linux ou Mac, basta fazer o download do repositório e executar o arquivo ThermoBeer.pro com o QT Creator. Já para Windows, há a possibilidade de ter seu programa no pc sem software adicional, bastando apenas baixar a pasta "programa" deste repositório e extraí-la em seu pc. Nesta pasta haverá todos os arquivos .dll necessários para executar o programa na sua máquina e sem instalar nada. 
 
 ### Utilizando o software do ThermoBeer
 #### Monitorando a temperatura 
