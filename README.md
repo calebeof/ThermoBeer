@@ -34,7 +34,7 @@ A tela de início da aplicação do projeto é bastante direta. Primeiro, o usu�
 Também há a possibilidade de cadastrar suas cervejas, para maior facilidade em selecioná-las posteriormente. Na aba de Cadastro, devem ser preenchidos o Nome, o Tipo, o Link da Receita (para consulta a posteriori), a Levedura da cerveja, da Quantidade Produzida e o Teor Alcóolico. Qualquer uma dessas informações não preenchidas, resultará em uma mensagem de aviso para serem informadas, ou seja, são obrigatórias. Basta, em seguida, clicar em Salvar. Ao clicar em Salvar, o usuário deve escolher onde quer salvar o seu arquivo de cervejas, podendo organizá-las em pastas de categorias depois.
 
 #### Carregando cervejas salvas
-![QTCarregar](figuras/carregarQT.PNG)
+![QTCarregar](figuras/carregarQT.png)
 
 Na aba de Dados, há a possibilidade de consultar os arquivos das cervejas salvas e carregá-las para o programa, a fim de selecioná-las para verificar os limites corrigidos da levedura no site. Ao clicar em Mostrar, será enviada a informação diretamente ao [site](https://thermobeer.herokuapp.com), se houver conexão da ESP8266 com a internet, com as delimitações dos limites necessários para cada levedura. 
 
