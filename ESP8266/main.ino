@@ -5,7 +5,7 @@
 #include <OneWire.h>
 #include <LiquidCrystal.h>
 
-#include "Dados.h"
+#include "functions.h"
 
 #define D6 12
 #define D7 13
@@ -15,7 +15,7 @@ double tempC = 0;
 OneWire oneWire(sensor);
 DallasTemperature sensors(&oneWire);
 HTTPClient http;
-Dados dados;
+Functions functions;
 int update;
 
 const char* SSID = "Andressa";
@@ -30,14 +30,14 @@ void setup()
   pinMode(rele, OUTPUT);
   sensors.begin();
   WiFi.begin(SSID, PASS);
-  while(!dados.verifySTATUS())
+  while(!functions.verifySTATUS())
     delay(500);
-  dados.uploadSTATUS();
+  functions.uploadSTATUS();
   delay(2000);
 }
 
 void loop(){
-  update = dados.updateRELE(dados.downloadWEB());
+  update = functions.updateRELE(functions.downloadWEB());
   //Serial.println(update);
   
   if(update == 1)
@@ -47,8 +47,8 @@ void loop(){
    
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);
-  dados.uploadSENSOR(tempC);
+  functions.uploadSENSOR(tempC);
   delay(1500);
-  dados.uploadRELE(update);
-  dados.uploadSTATUS();
+  functions.uploadRELE(digitalRead(rele));
+  functions.uploadSTATUS();
 }
